@@ -6,6 +6,6 @@ test = DS1X31.DS1X31(0x48)
 test.init()
 test.start()
 
-for x in range(10):
+for x in range(50):
 	print test.getTemp()
-	time.sleep(4)
+        time.sleep(.5)

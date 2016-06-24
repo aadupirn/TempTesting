@@ -1,0 +1,15 @@
+import DS1X31
+import time
+import logging
+
+logging.basicConfig(filename='/var/log/temptest.log', leve=logging.INFO)
+
+test = DS1X31.DS1X31(0x48, one_shot = True)
+
+test.init()
+test.start()
+
+for x in range(9000):
+	temperature = test.getTemp()
+	print temperatu
+        time.sleep(1)

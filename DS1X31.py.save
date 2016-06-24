@@ -60,10 +60,10 @@ class DS1X31:
                         self.bus.write_byte(self.address, self.START_CONVERT)
 
                 result = self.bus.read_i2c_block_data(self.address, self.READ_TEMP)
-		whole = result[0]
-		fraction = (result[1]>>4)/16.0  #build fraction part of temperature
-	        out = whole + fraction		#add whole to fraction
-		return self.__CtoF(out) if unit == 'f' else out
+                whole = result[0]
+                frac = (result[1]) / 256.0
+                out = whole + frac
+                return self.__CtoF(out) if unit == 'f' else out
 
         # Private function to convert C to F
         def __CtoF(self, celsius):
