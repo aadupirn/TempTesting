@@ -9,7 +9,7 @@ test = DS1X31.DS1X31(0x48, one_shot = True)
 test.init()
 test.start()
 
-print 'Temperature data being collected and sent to http://192.168.168.179:3000...'
+print 'Temperature data being collected and sent to http://192.168.168.5:3000...'
 while(True):
 	temp = test.getTemp()
 	unaware = datetime.now()

@@ -1,1 +1,23 @@
-test
+import time
+import requests
+from datetime import datetime 
+import pytz
+from pyowm import OWM
+import json
+
+print 'Real Temperature data being collected and sent to http://192.168.168.5:3000...'
+while(True):
+
+	apiKey = '60f317d055265f90f81f6157503f89a6'
+	owm = OWM(apiKey)
+	obs = owm.weather_at_id(5202765)
+	weather = obs.get_weather()
+	tempobj = weather.get_temperature('fahrenheit')
+	
+	temp = tempobj['temp']
+
+	unaware = datetime.now()
+	tz = pytz.timezone('US/Eastern')
+	now = tz.localize(unaware)
+	r = requests.post('http://192.168.168.5:3000/realtemp', data = {'temp': temp, 'timestamp': now.strftime('%Y-%m-%dT%H:%M:%S%z')})
+        time.sleep(60)
