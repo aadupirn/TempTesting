@@ -18,7 +18,6 @@ class DS1X31:
         RESET = 0x54         # Simulates power cycle
 
         # Define smbus object
-        #bus = smbus.SMBus(1) # i2c using /dev/i2c-1
         bus = mraa.I2c(1)
 
         def __init__(self, address, one_shot=False, res0=True, res1=True, polarity=False):
