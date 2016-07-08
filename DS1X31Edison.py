@@ -1,6 +1,6 @@
 import mraa
 
-class DS1X31:
+class DS1X31Edison:
 
         # Set up static bit masks
         one_shot_cfg = 0x01
