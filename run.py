@@ -35,5 +35,5 @@ while(True):
 	tz = pytz.timezone('US/Eastern')
 	now = tz.localize(unaware)
 	r = requests.post('http://192.168.168.5:3000/temp', data = {'mac_id': mac_id, 'temp': temp, 'timestamp': now.strftime('%Y-%m-%dT%H:%M:%S%z')})
-        print "Temperature was %f at %s" % (temp, now)
+        print "mac_id: %s, temp: %s, timestamp: %s" % (mac_id, temp, now.strftime('%Y-%m-%dT%H:%M:%S:%z'))
         time.sleep(10)

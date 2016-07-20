@@ -15,13 +15,14 @@ while(True):
 		obs = owm.weather_at_id(5202765)#Murrysville
 		weather = obs.get_weather()
 		tempobj = weather.get_temperature('fahrenheit')
-		temp = tempobj['temp']
-		print temp
+		temp = tempobj['temp']		
 		unaware = datetime.now()
 		tz = pytz.timezone('US/Eastern')
 		now = tz.localize(unaware)
-		r = requests.post('http://192.168.168.5:3000/realtemp', data = {'temp': temp, 'timestamp': now.strftime('%Y-%m-%dT%H:%M:%S%z')})
-		
+		formatString = now.strftime('%Y-%m-%dT%H:%M:%S%z')
+		r = requests.post('http://192.168.168.5:3000/realtemp', data = {'temp': temp, 'timestamp': formatString})
+		printout = "temp: %s, timestamp: %s" % (temp, formatString)
+		print printout
 	except:
 		#error
 		print 'unable to retrieve temperature data'
