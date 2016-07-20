@@ -15,7 +15,7 @@ else:
 
     elif sys.argv[1].lower() == 'raspberry':
         import DS1X31Raspberry
-        test = DSiX31Raspberry.DS1X31Raspberry(0x48, one_shot = True)
+        test = DS1X31Raspberry.DS1X31Raspberry(0x48, one_shot = True)
 
     else:
         print "Unrecognized system! exiting..."
