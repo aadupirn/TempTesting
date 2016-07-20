@@ -1,8 +1,8 @@
-import DS1X31
+import DS1X31Edison
 import time
 
 
-test = DS1X31.DS1X31(0x48)
+test = DS1X31Edison.DS1X31Edison(0x48)
 
 test.init()
 test.start()

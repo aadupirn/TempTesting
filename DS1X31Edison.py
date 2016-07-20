@@ -18,7 +18,7 @@ class DS1X31Edison:
         RESET = 0x54         # Simulates power cycle
 
         # Define smbus object
-        bus = mraa.I2c(1)
+        bus = mraa.I2c(6)
 
         def __init__(self, address, one_shot=False, res0=True, res1=True, polarity=False):
                 self.address = address
